@@ -1,12 +1,13 @@
 package utils;
 
-import dto.Contact;
+import models.Contact;
 import net.datafaker.Faker;
 
 public class ContactFactory {
     static Faker faker = new Faker();
 
     public static void main(String[] args) {
+
         System.out.println(positiveContact());
     }
 //    private String id;

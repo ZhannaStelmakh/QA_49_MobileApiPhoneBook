@@ -1,4 +1,4 @@
-package dto;
+package models;
 
 public class User {
     private String username;
@@ -13,6 +13,7 @@ public class User {
     }
 
     public String getUsername() {
+
         return username;
     }
 
@@ -21,6 +22,7 @@ public class User {
     }
 
     public String getPassword() {
+
         return password;
     }
 

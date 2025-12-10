@@ -48,18 +48,62 @@ allure {
 }
 
 test {
-    useTestNG(){
-        useDefaultListeners = true
-        suites 'src/test/resources/testng.xml'
-    }
-    testLogging {
-        events "passed", "skipped", "failed"
-        exceptionFormat "full"
-    } // или useJUnitPlatform()
+    useTestNG() {
+        useTestNG() //{
+        //        useDefaultListeners = true
+//        suites 'src/test/resources/testng.xml'
+//    }
+//    testLogging {
+//        events "passed", "skipped", "failed"
+//        exceptionFormat "full"
+//    } // или useJUnitPlatform()
 
-    jvmArgs(
-            '--add-opens=java.base/java.lang=ALL-UNNAMED',
-            '--add-opens=java.base/java.io=ALL-UNNAMED',
-            '--add-opens=java.base/sun.nio.ch=ALL-UNNAMED'
-    )
+        jvmArgs(
+                '--add-opens=java.base/java.lang=ALL-UNNAMED',
+                '--add-opens=java.base/java.io=ALL-UNNAMED',
+                '--add-opens=java.base/sun.nio.ch=ALL-UNNAMED'
+        )
+    }
 }
+
+//task math(type: Test) {
+//    useTestNG() {
+//        useDefaultListeners = true
+//        suites 'src/test/resources/testng.xml'
+//    }
+//    testLogging {
+//        events "passed", "skipped", "failed"
+//        exceptionFormat "full"
+//    }
+//
+//    jvmArgs(
+//            '--add-opens=java.base/java.lang=ALL-UNNAMED',
+//            '--add-opens=java.base/java.io=ALL-UNNAMED',
+//            '--add-opens=java.base/sun.nio.ch=ALL-UNNAMED'
+//    )
+//}
+
+//tasks.register('allureGenerate', Exec) {
+//    dependsOn test
+//    group = 'verification'
+//    description = 'Generate Allure report'
+//
+//    commandLine 'allure', 'generate', 'build/allure-results', '--clean', '-o', 'build/allure-report'
+//
+//    doFirst {
+//        println 'Generating Allure report...'
+//    }
+//}
+//
+//tasks.register('allureOpen', Exec) {
+//    group = 'verification'
+//    description = 'Open Allure report in browser'
+//
+//    commandLine 'allure', 'open', 'build/allure-report'
+//
+//    doFirst {
+//        if (!file('build/allure-report').exists()) {
+//            throw new GradleException('Allure report not found. Run allureGenerate first.')
+//        }
+//    }
+//}

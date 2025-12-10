@@ -19,7 +19,7 @@ public class TestsAddNewContact extends TestBase{
     @BeforeMethod
     public void login(){
         authenticationScreen = new AuthenticationScreen(driver);
-        User user = new User("a@mail.ru", "Password123!");
+        User user = new User("cherry@gmail.com", "Ch12345$");
         authenticationScreen.typeAuthForm(user);
         authenticationScreen.clickBtnLogin();
         contactListScreen = new ContactListScreen(driver);
